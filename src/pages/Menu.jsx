@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Search, Plus, Star, Loader2 } from 'lucide-react';
 import useCartStore from '../store/cartStore';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 const categories = ['All', 'Hot Coffee', 'Cold Coffee', 'Snacks'];
 
 export default function Menu() {

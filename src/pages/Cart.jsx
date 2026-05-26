@@ -9,7 +9,7 @@ import {
 import useCartStore from '../store/cartStore';
 import useAuthStore from '../store/authStore';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 const MOCK_ADDRESSES = [
   { id: 1, type: 'Home', label: 'Home Address', detail: 'Flat 402, Oakwood Residency, Brew Avenue, Sector 52' },

@@ -3,7 +3,7 @@ import { LogOut, User, Mail, Phone, ShoppingBag, Clock, ChevronRight } from 'luc
 import useAuthStore from '../store/authStore';
 import { useState, useEffect } from 'react';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 export default function Profile() {
   const navigate = useNavigate();
