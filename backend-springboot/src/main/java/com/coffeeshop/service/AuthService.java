@@ -14,24 +14,21 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Business logic for user registration, login, and profile retrieval.
- */
 @Service
 public class AuthService {
 
     private static final Logger log = LoggerFactory.getLogger(AuthService.class);
 
-    private final UserRepository  userRepository;
+    private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final JwtUtils        jwtUtils;
+    private final JwtUtils jwtUtils;
 
     public AuthService(UserRepository userRepository,
-                       PasswordEncoder passwordEncoder,
-                       JwtUtils jwtUtils) {
-        this.userRepository  = userRepository;
+            PasswordEncoder passwordEncoder,
+            JwtUtils jwtUtils) {
+        this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
-        this.jwtUtils        = jwtUtils;
+        this.jwtUtils = jwtUtils;
     }
 
     // ── Register ─────────────────────────────────────────────

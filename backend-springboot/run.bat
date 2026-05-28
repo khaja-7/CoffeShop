@@ -13,7 +13,7 @@ if %ERRORLEVEL% neq 0 (
 
 echo ☕ Checking Maven installation...
 where mvn >nul 2>&1
-if %ERRORLEVEL% eq 0 (
+if %ERRORLEVEL% EQU 0 (
     echo ✅ Global Maven found.
     set MVN_CMD=mvn
     goto :run

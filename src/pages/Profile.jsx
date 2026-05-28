@@ -20,9 +20,19 @@ export default function Profile() {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
-      setOrders(data);
+      if (res.ok && Array.isArray(data)) {
+        setOrders(data);
+      } else {
+        console.error('Failed to fetch orders:', data);
+        setOrders([]);
+        if (res.status === 401) {
+          logout();
+          navigate('/login');
+        }
+      }
     } catch (err) {
       console.error('Failed to fetch orders:', err);
+      setOrders([]);
     }
   };
 

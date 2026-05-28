@@ -21,9 +21,15 @@ export default function Menu() {
     try {
       const res = await fetch(`${API_URL}/products`);
       const data = await res.json();
-      setProducts(data);
+      if (res.ok && Array.isArray(data)) {
+        setProducts(data);
+      } else {
+        console.error('Failed to fetch products:', data);
+        setProducts([]);
+      }
     } catch (err) {
       console.error('Failed to fetch products:', err);
+      setProducts([]);
     } finally {
       setLoading(false);
     }
